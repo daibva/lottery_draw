@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>新澳彩网，最快手机开奖，平特手机论坛</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 原有CSS保留 -->
+    <link href="../static/css/css.css" rel="stylesheet" type="text/css" />
+    
+    <script src="../static/js/jquery.min.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="../static/js/qishu.js"></script>
+    
+    <!-- Tailwind 表格和配色优化 -->
+    <style>
+        /* 页面整体居中 */
+        body {
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            /* 追加：覆盖外部 css.css 的 720px 限制 */
+            max-width: none !important;
+            width: 100% !important;
+        }
+
+        /* 主容器居中 */
+        .header-top1, .header, .box {
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* 优化表格样式 */
+        .jztx, .jztx1, .zonghesha {
+            width: 100%;
+            border-collapse: collapse;
+            background: white !important;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .jztx td, .jztx1 td, .zonghesha td, .zonghesha th {
+            padding: 12px 16px !important;
+            border: 1px solid #e5e7eb !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+
+        .jztx tr:hover, .jztx1 tr:hover, .zonghesha tr:hover {
+            background-color: #eff6ff !important;
+            transition: background-color 0.2s;
+        }
+
+        .jztx td:first-child, .jztx1 td:first-child, .zonghesha td:first-child {
+            font-weight: 600 !important;
+            background: linear-gradient(to right, #f9fafb, #f3f4f6) !important;
+            color: #374151 !important;
+        }
+
+        .jztx td:last-child, .jztx1 td:last-child, .zonghesha td:last-child {
+            font-weight: 500 !important;
+        }
+
+        /* 标题样式优化 - 确保居中 */
+        .list-title {
+            text-align: center !important;
+            font-size: 18px !important;
+            font-weight: bold !important;
+            padding: 12px 16px !important;
+            background: linear-gradient(to right, #3b82f6, #2563eb) !important;
+            color: white !important;
+            border-radius: 8px 8px 0 0 !important;
+            margin-bottom: 0 !important;
+            display: block !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        /* 内容盒子优化 */
+        .box {
+            background: white !important;
+            border-radius: 8px !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+            overflow: hidden !important;
+            margin-bottom: 24px !important;
+        }
+
+        .box.pad {
+            padding: 0 !important;
+        }
+
+        /* 导航按钮优化 */
+        .nav2 {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        /*.nav2 ul li a {*/
+        /*    background: linear-gradient(to right, #3b82f6, #2563eb) !important;*/
+        /*    color: white !important;*/
+        /*    border-radius: 9999px !important;*/
+        /*    padding: 8px 16px !important;*/
+        /*    text-align: center !important;*/
+        /*    font-weight: 500 !important;*/
+        /*    transition: all 0.3s !important;*/
+        /*    display: block !important;*/
+        /*}*/
+
+        .nav2 ul li a:hover {
+            background: linear-gradient(to right, #2563eb, #1d4ed8) !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+            transform: scale(1.05) !important;
+        }
+
+        /* 高亮样式 - 强制覆盖 */
+        span[style*="background-color: rgb(255, 255, 0)"],
+        span[style*="background-color: yellow"],
+        span[style*="background-color:#FFFF00"],
+        font[style*="background-color: rgb(255, 255, 0)"],
+        font[style*="background-color: yellow"] {
+            background-color: #fef08a !important;
+            color: #dc2626 !important;
+            padding: 2px 2px !important;
+            border-radius: 3px !important;
+            font-weight: bold !important;
+        }
+
+        /* 红色字体强制覆盖 */
+        font[color="#ff0000"],
+        span[style*="color: #ff0000"],
+        span[style*="color: rgb(255, 0, 0)"] {
+            color: #dc2626 !important;
+        }
+
+        /* 玩法提示样式 */
+        .wanfatips {
+            text-align: center !important;
+            background-color: #dbeafe !important;
+            color: #1e40af !important;
+            padding: 12px 16px !important;
+            font-weight: 500 !important;
+            border-radius: 0 0 8px 8px !important;
+            font-size: 16px !important;
+        }
+
+        /* 开奖结果优化 */
+        td:last-child:contains("对") {
+            color: #059669 !important;
+        }
+
+        td:last-child:contains("错") {
+            color: #dc2626 !important;
+        }
+
+        /* 特殊表格头样式 */
+        .zonghesha th {
+            background: linear-gradient(to right, #374151, #1f2937) !important;
+            color: white !important;
+            font-weight: bold !important;
+            padding: 12px !important;
+            text-align: center !important;
+        }
+
+        /* 精准大包围数字样式 */
+        .jztx1 td:nth-child(2) {
+            font-family: monospace !important;
+            word-spacing: 8px !important;
+            color: #1d4ed8 !important; /* brand blue */
+            font-weight: 700 !important;
+            line-height: 1.8 !important;
+        }
+
+        /* 返回顶部按钮优化 */
+        #backToTop {
+            width: 48px !important;
+            height: 48px !important;
+            background: linear-gradient(to bottom, #3b82f6, #2563eb) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s !important;
+            position: fixed !important;
+            right: 20px !important;
+            bottom: 60px !important;
+            z-index: 9999 !important;
+        }
+
+        #backToTop:hover {
+            background: linear-gradient(to bottom, #2563eb, #1d4ed8) !important;
+            transform: scale(1.1) !important;
+        }
+
+        /* 广告图片优化 */
+        .box.pad a img {
+            border-radius: 8px !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+            transition: transform 0.3s !important;
+            width: 100% !important;
+            display: block !important;
+        }
+
+        .box.pad a img:hover {
+            transform: scale(1.02) !important;
+        }
+
+        /* 导航容器优化 */
+        #nav2-container {
+            background: white !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+        }
+
+        /* 表格内容对齐 */
+        #jinzita td:nth-child(2) {
+            line-height: 1.8 !important;
+            text-align: center !important;
+        }
+
+        /* 头部样式 */
+        .header {
+            background: white !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+            padding: 0 20px !important;
+        }
+
+        .header-top1 {
+            width: 100% !important;
+        }
+
+        .logo-box {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        /* 页脚优化 */
+        .footer {
+            background: linear-gradient(to right, #1f2937, #111827) !important;
+            color: white !important;
+            padding: 32px 24px !important;
+            border-radius: 8px !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        /* 确保所有内容容器居中 */
+        .anmao1 {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        /* 修复表格背景色 */
+        table {
+            background-color: white !important;
+        }
+
+        table tr {
+            background-color: transparent !important;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9fafb !important;
+        }
+
+        table tr:hover {
+            background-color: #eff6ff !important;
+        }
+
+        /* 追加：确保所有主要表格在桌面端整体居中并限制宽度 */
+        .jztx, .jztx1, .zonghesha {
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* 追加：确保所有.box容器在桌面端居中 */
+        .box, .box.pad, .footer, .logo-box, .nav2 {
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* 追加：标题在背景中严格水平垂直居中且铺满容器 */
+        .list-title {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            min-height: 44px !important;
+        }
+
+        /* 追加：修正可能来自旧CSS的浮动与文本对齐影响 */
+        .list-title, .box .list-title, .box.pad .list-title {
+            float: none !important;
+            text-align: center !important;
+        }
+
+        /* 追加：对直接位于body下且未包裹的表格做居中保护 */
+        table.jztx, table.jztx1, table.zonghesha {
+            display: table !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* PC端限制公告栏与顶部条最大宽度并居中 */
+        @media (min-width: 1024px) {
+            .news-box, .notice-banner, .header-top1, .header-top2, .header {
+                max-width: 1200px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                left: 0 !important;
+                right: 0 !important;
+            }
+        }
+
+        /* PC端：限制 tab 容器最大宽度并居中 */
+        @media (min-width: 1024px) {
+            .tab-container {
+                max-width: 1200px !important;
+                width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                box-sizing: border-box !important;
+            }
+        }
+    </style>
+<script>
+var imgurl="https://250417gwbd-tk.0523mx.com/2025/col/mc/"+qishu+"/";
+var imgurl1="https://250417gwbd-tk.0523mx.com/2025/col/mc/"+qishu+"/";
+var imgurl2="https://250417gwbd-tk.0523mx.com/2025/col/mc/"+qishu+"/";
+</script>
+
+</head>
+
+<body>
+
+    <!--首页吸顶开始-->
+    <div class="header-top1">
+        <div class="header">
+            
+            
+
+
+            <div class="logo-box line">
+                <div class="logo"><img src="../public/image/logo.png"></div>
+                <div class="bank"><img src="../public/image/j.jpg"></div>
+                
+            </div>
+              </div>
+            </div>
+            
+            
+  <div class="header-top1-blank"></div>
+ 
+<!--广告横幅内容段代码开始-->
+<div class="box pad"> 
+<a style="display: block; margin-top: 5px;" target="_blank" href="https://www.google.com/intl/zh-CN/chrome/"><img src="../public/image/chrome.gif" width="100%"></a> 
+
+</div>  
+<!--广告横幅内容段代码开始-->
+<div class="box pad"> 
+<a style="display: block; margin-top: 5px;" target="_blank" href="https://www.google.com/intl/zh-CN/chrome/"><img src="../public/image/a0736487e8db2fe7.gif" width="100%"></a> 
+
+</div>  
+
+    <!--开奖插件开始-->
+<script language="JavaScript" type="text/javascript" src='../kj/mc2024a.js' charset="utf-8"></script>
+
+    <!--开奖插件结束-->
+
+<!-- 导航 -->
+
+<div id="nav2-container">
+    <div id="nav2" class="nav2">
+        <ul>
+            <li><a href="#yxym">一肖一码</a></li>
+            <li><a href="#30ma">精准包围</a></li>
+            <li><a href="#pingteyixiao">平特一肖</a></li>
+            <li><a href="#jiaqinyeshou">家禽野兽</a></li>
+            <li><a href="#shisanhe">13合数</a></li>
+        </ul>
+        <ul>
+            <li><a href="#bose">波色中特</a></li>
+            <li><a href="#liuxiao">内部六肖</a></li>
+            <li><a href="#yitou">一头中特</a></li>
+            <li><a href="#sijixiao">四季特肖</a></li>
+            <li><a href="#wuxing">五行中特</a></li>
+        </ul>
+        <ul>
+            <li><a href="#sanzuerlian">三组二连</a></li>
+            <li><a href="#daxiao">大小中特</a></li>
+            <li><a href="#tiandixiao">天地特肖</a></li>
+            <li><a href="#hedanshuang">合数单双</a></li>
+            <li><a href="#xiaoma">4肖4码</a></li>
+        </ul>
+        <ul>
+            <li><a href="#zonghesha">精准绝杀</a></li>
+            <li><a href="#shashierma">杀12码</a></li>
+            <li><a href="#jueshabanbo">绝杀半波</a></li>
+            <li><a href="#shawuxing">封杀五行</a></li>
+            <li><a href="#shaliuxiao">绝杀六肖</a></li>
+        </ul>
+        <!-- 导航 -->
+    </div>
+    <div id="placeholder"></div>
+</div>
+<script>
+    var nav = document.getElementById("nav2");
+    var placeholder = document.getElementById("placeholder");
+    var offset = nav.offsetHeight; // 根据需要调整此偏移量
+    var targetElements = document.querySelectorAll('a[href^="#"]');
+
+    document.onscroll = function () {
+        var scrollPos = document.body.scrollTop || document.documentElement.scrollTop;
+        var isFixed = scrollPos >= offset;
+
+        nav.style.position = isFixed ? "fixed" : "relative";
+        placeholder.style.height = isFixed ? nav.clientHeight + "px" : "0";
+
+        // 添加事件监听器以调整带有锚链接的滚动位置
+        targetElements.forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                event.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                var targetElement = document.getElementById(targetId);
+                var targetOffset = targetElement.offsetTop - offset - 10; // 调整此偏移量
+
+                window.scrollTo({
+                    top: targetOffset,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    };
+</script>
+
+
+
+<style>
+    .nav2 {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 2px;
+        font-size: 13px;
+        background: #fff;
+    }
+
+    .nav2 ul {
+        padding: 2px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav2 ul li {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 2px;
+    }
+
+    .nav2 ul li a {
+        display: block;
+        padding: 3px 0;
+        text-align: center;
+        color: #fff;
+        border-radius: 50px;
+        background: #3b74f7;
+    }
+
+    .nav2 ul li a:hover {
+        background: #da183b;
+    }
+
+    #nav2[data-fixed="fixed"] {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 1;
+        box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    }
+
+    .nav-img {
+        text-align: center;
+        background: #000;
+    }
+
+    .nav-img img {
+        width: auto;
+        height: 50px;
+    }
+
+    @media screen and (min-width: 720px) {
+        .nav2 {
+            padding: 4px;
+            font-size: 16px;
+        }
+
+        .nav2 ul {
+            padding: 4px 0;
+        }
+
+        .nav2 ul li {
+            padding: 0 4px;
+        }
+
+        .nav2 ul li a {
+            padding: 5px 0;
+            cursor: pointer;
+        }
+    }
+    .wanfatips{
+        font-size:18px;
+        text-align:center;
+        background: #1a8cdf;
+        color: #fff;
+        line-height:40px;
+        font-weight: bold;
+        }
+
+</style>
+<script>
+    var obj = document.getElementById("nav2");
+    var ot = obj.offsetTop;
+    document.onscroll = function() {
+        var st = document.body.scrollTop || document.documentElement.scrollTop;
+        obj.setAttribute("data-fixed", st >= ot ? "fixed" : "")
+    }
+</script>
+<!--导航-->
+
+<!--马报图展-->
+<div class="box pad">
+<div class="list-title">澳利澳九肖18码</div>
+<script>
+document.write(`<img width="100%" src="${imgurl}alajx.jpg">`);
+</script>
+</div>
+
+</div>
+
+
+<!--一肖一码-->  
+<div class="anmao1" id="yxym"></div>  
+<div class="box pad">
+<div class="list-title">特码一肖</div>
+
+<table class="jztx" width="100%">
+<tbody id="jinzita">
+<tr><td>第230期</td><td>虎<br>虎.羊<br>虎.羊.兔.蛇<br>虎.羊.兔.蛇.牛.马<br>虎.羊.兔.蛇.牛.马.狗.猴</td><td>开:???准</td></tr><tr><td>第229期</td><td>兔
+<br>兔.羊
+<br>兔.羊.鸡.蛇
+<br>兔.羊.鸡.蛇.牛.马
+<br>兔.羊.鸡.蛇.牛.马.狗.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">猴</font></span></td><td>开:猴10对</td></tr><tr><td>第228期</td><td>龙<br>龙.蛇<br>龙.蛇.羊.狗<br>龙.蛇.羊.狗.牛.马<br>龙.蛇.羊.狗.牛.马.鼠.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">虎</font></span></td><td>开:虎16对</td></tr><tr><td>第227期</td><td>猪<br>猪.兔<br>猪.兔.马.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">牛</font></span><br>猪.兔.马.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">牛</font>.狗.鸡<br>猪.兔.马.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">牛</font>.狗.鸡.虎.蛇</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>虎<br>虎.羊<br>虎.羊.鸡.蛇<br>虎.羊.鸡.蛇.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">兔</font></span>.马<br>虎.羊.鸡.蛇.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">兔</font>.马.狗.猴</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>兔<br>兔.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">狗</font></span><br>兔.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">狗</font>.马.蛇<br>兔.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">狗</font>.马.蛇.羊.猴<br>兔.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">狗</font>.马.蛇.羊.猴.猪.狗</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>兔
+<br>兔.牛
+<br>兔.牛.龙.猪
+<br>兔.牛.龙.猪.猴.鸡
+<br>兔.牛.龙.猪.猴.鸡.狗.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">羊</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">鸡</font></span><br><font color="#ff0000" style="background-color: rgb(255, 255, 0);">鸡</font>.虎<br><font color="#ff0000" style="background-color: rgb(255, 255, 0);">鸡</font>.虎.兔.狗<br><font color="#ff0000" style="background-color: rgb(255, 255, 0);">鸡</font>.虎.兔.狗.猴.龙<br><font color="#ff0000" style="background-color: rgb(255, 255, 0);">鸡</font>.虎.兔.狗.猴.龙.鼠.猪</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>鼠<br>鼠.猪<br>鼠.猪.兔.鸡<br>鼠.猪.兔.鸡.虎.牛<br>鼠.猪.兔.鸡.虎.牛.蛇.狗</td><td>开:龙14错</td></tr><tr><td>第221期</td><td>兔<br>兔.狗<br>兔.狗.马.蛇<br>兔.狗.马.蛇.羊.鼠<br>兔.狗.马.蛇.羊.鼠.猪.狗</td><td>开:虎40错</td></tr></tbody></table>
+</div>
+
+<!--精准大包围--> 
+<div class="anmao1" id="30ma"></div>
+<div class="box pad">
+<div class="list-title">精准大包围</div>
+<table class="jztx1" width="100%">
+	<tbody id="30ma">
+		<tr><td>第230期</td><td>33 38 28 36 07 45 12 19 05 49 17 30 48 46 29 10 24 25 04 08 14 35 16 41 06 18 47 09 20 02</td><td>开:???准</td></tr><tr><td>第229期</td><td>20 39 30 36 21 09 25 43 04 49 46 19 44 26 19 40 22 38 27 35 45 13 07 47 03 05 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">10</font></span> 24 41 15</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>38 31 27 40 15 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">16</font></span> 03 07 39 48 32 09 33 25 34 05 19 13 22 23 12 28 45 14 43 29 21 41 11 49</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>35 40 27 44 46 34 17 36 20 19 01 06 03 23 43 16 39 07 42 08 12 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">41</font></span> 30 11 10 15 21 38 31 48</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>30 16 25 49 35 01 11 14 05 21 31 07 18 48 17 46 45 33 27 43 41 47 04 34 37 08 40 39 15 36</td><td>开:兔03错</td></tr><tr><td>第225期</td><td>20 16 43 45 35 38 22 34 04 07 28 19 15 47 29 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">44</font></span> 46 01 26 14 40 13 17 05 23 37 49 24 39 48</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>49 17 06 42 38 41 48 03 12 08 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">47</font></span> 20 36 07 44 19 04 24 23 30 25 09 45 43 10 18 29 27 21 34</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>16 22 48 38 03 15 28 30 25 49 32 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">45</font></span> 44 01 43 05 20 21 40 12 42 17 18 08 41 02 07 46 33 31</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>47 13 48 23 07 09 39 25 35 18 17 27 36 16 46 38 49 44 <font color="#ff0000" style="background-color: rgb(255, 255, 0);">14</font> 42 15 30 12 24 33 04 10 41 40 08</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>28 24 27 43 42 10 19 03 20 07 14 37 31 22 08 33 48 46 34 04 49 21 17 29 02 36 44 09 <span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">40 </font></span>01</td><td>开:虎40对</td></tr>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</tbody>
+</table></div>
+
+<!--平特一肖-->  
+<div class="box pad">
+<div class="list-title">平特一肖</div>
+
+<table class="jztx" width="100%">
+<tbody id="pingteyixiao">
+<tr><td>第230期</td><td>猴猴猴</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">虎虎虎</font></span></td><td>开:平16对</td></tr><tr><td>第228期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">鼠鼠鼠</font></span></td><td>开:平42对</td></tr><tr><td>第227期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">蛇蛇蛇</font></span></td><td>开:平49对</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">鸡鸡鸡</font></span></td><td>开:平33对</td></tr><tr><td>第225期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">马马马</font></span></td><td>开:平12对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">牛牛牛</font></span></td><td>开:平41对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">虎虎虎</font></span></td><td>开:平28对</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">牛牛牛</font></td><td>开:平41对</td></tr><tr><td>第221期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">虎虎虎</font></td><td>开:特40对</td></tr></tbody></table></div> 
+<!--三组二连-->  
+<div class="box pad">
+<div class="list-title">三组二连肖</div>
+
+<table class="jztx" width="100%">
+    <tbody id="sanzuerlian">
+      <tr><td>第230期</td><td>兔马.蛇龙.虎马</td><td>开:???准</td></tr><tr><td>第229期</td><td>羊鸡.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">虎蛇</font></span>.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">猴兔</font></td><td>开:中二组</td></tr><tr><td>第228期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">蛇狗</font></span>.龙兔.鸡猴</td><td>开:中一组</td></tr><tr><td>第227期</td><td>鸡蛇.猴兔.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">龙狗</font></span></td><td>开:中一组</td></tr><tr><td>第226期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">牛兔</font>.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">鸡龙</font>.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">虎狗</font></span></td><td>开:中三组</td></tr><tr><td>第225期</td><td>猪牛.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">兔蛇</font></span>.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">马狗</font></td><td>开:中二组</td></tr><tr><td>第224期</td><td>鸡狗.猪牛.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">鼠牛</font></span></td><td>开:中一组</td></tr><tr><td>第223期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">鸡虎</font>.蛇狗.马羊</td><td>开:中一组</td></tr><tr><td>第222期</td><td>鼠羊.狗鸡.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">龙牛</font></span></td><td>开:中一组</td></tr><tr><td>第221期</td><td>鼠羊.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">兔羊</font>.龙牛</td><td>开:中一组</td></tr>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </tbody>
+  </table></div> 
+
+
+<!--13合数-->
+<div class="anmao1" id="jiaqinyeshou"></div>  
+<div class="box pad">
+<div class="list-title">十三合数</div>
+<table class="jztx" width="100%">
+  <tbody id="shisanhe">
+    <tr><td>第230期</td><td>12合.13合.02合.05合.11合</td><td>开:???准</td></tr><tr><td>第229期</td><td>06合.05合.04合.11合.10合</td><td>开:猴10错</td></tr><tr><td>第228期</td><td>09合.02合.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">07合</font></span>.10合.04合</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>06合.13合.07合.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">05合</font></span>.11合</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>09合.13合.10合.06合.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">03合</font></td><td>开:兔03对</td></tr><tr><td>第225期</td><td>06合.05合.04合.12合.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">08合</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td>13合.09合.11合.03合.06合</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>07合.05合.11合.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">09合</font></span>.02合</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>01合.08合.10合.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">05合</font></span>.09合</td><td>开:龙14对</td></tr><tr><td>第221期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">04合</font>.12合.08合.13合.10合</td><td>开:虎40对</td></tr>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </tbody>
+</table><div class="wanfatips">十三合玩法:特码数字头尾相加合数</div>
+</div>
+
+<!--家禽野兽-->
+<div class="anmao1" id="jiaqinyeshou"></div>  
+<div class="box pad">
+<div class="list-title">家禽野兽</div>
+<table class="jztx" width="100%">
+<tbody id="jiaqinyeshou">
+<tr><td>第230期</td><td>野兽</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">野兽</font></span></td><td>开:猴10对</td></tr><tr><td>第228期</td><td>家禽</td><td>开:虎16错</td></tr><tr><td>第227期</td><td>野兽</td><td>开:牛41错</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">野兽</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">家禽</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">家禽</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">家禽</font></span></td><td>开:鸡45对</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">野兽</font></td><td>开:龙14对</td></tr><tr><td>第221期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">野兽</font></td><td>开:虎40对</td></tr></tbody></table><div class="wanfatips">【家禽】:牛,马,羊,鸡,狗,猪<br>【野兽】:鼠,虎,兔,龙,蛇,猴</div>
+</div>
+
+<!--波色中特--> 
+<div class="box pad">
+<div class="list-title">波色中特</div>
+
+ <table class="jztx" width="100%">
+    <tbody id="bose">
+      <tr><td>第230期</td><td>红波+蓝波</td><td>开:???准</td></tr><tr><td>第229期</td><td>红波+<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">蓝波</font></span></td><td>开:猴10对</td></tr><tr><td>第228期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">绿波</font></span>+红波</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>红波+<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">蓝波</font></span></td><td>开:牛41对</td></tr><tr><td>第226期</td><td>红波+<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">蓝波</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">绿波</font></span>+红波</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>红波+绿波</td><td>开:羊47错</td></tr><tr><td>第223期</td><td>绿波+蓝波</td><td>开:鸡45错</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">蓝波</font>+红波</td><td>开:龙14对</td></tr><tr><td>第221期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">红波</font>+蓝波</td><td>开:虎40对</td></tr>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </tbody>
+  </table></div>
+
+<!--马报图展-->
+<a id="amqzs"></a>
+<div class="box pad">
+<div class="list-title">澳门内部资料</div>
+<script>
+document.write(`<img width="100%" src="${imgurl1}amnb.jpg">`);
+</script>
+</div>
+
+<!--必中六肖-->	
+<div class="box pad">
+<div class="list-title">内部六肖</div>
+
+<table class="jztx" width="100%">
+<tbody id="liuxiao">
+<tr><td>第230期</td><td>猴.牛.兔.鸡.羊.马</td><td>开:???准</td></tr><tr><td>第229期</td><td>猪.鼠.狗.蛇.马.龙</td><td>开:猴10错</td></tr><tr><td>第228期</td><td>鸡.狗.羊.猪.龙.兔</td><td>开:虎16错</td></tr><tr><td>第227期</td><td>猪.羊.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">牛</font></span>.马.鼠.龙</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>鼠.马.牛.猪.羊.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">兔</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td>牛.马.虎.鸡.兔.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">狗</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">羊</font></span>.鸡.兔.狗.马.龙</td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">鸡</font></span>.鼠.兔.猴.牛.龙</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>狗.鼠.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">龙</font></span>.鸡.虎.蛇</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>狗.羊.蛇.鼠.兔.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">虎</font></td><td>开:虎40对</td></tr></tbody></table></div>
+
+<!--合数单双--> 
+<div class="box pad">
+<div class="list-title">合数单双</div>
+
+<table class="jztx" width="100%">
+    <tbody id="hedanshuang">
+      <tr><td>第230期</td><td>合数单</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">合数双</font></span></td><td>开:猴10对</td></tr><tr><td>第228期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">合数单</font></td><td>开:虎16对</td></tr><tr><td>第227期</td><td>合数双</td><td>开:牛41错</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">合数单</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">合数双</font></td><td>开:狗44对</td></tr><tr><td>第224期</td><td><font style="background-color: rgb(255, 255, 0);" color="#ff0000">合数单</font></td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">合数单</font></span></td><td>开:鸡45对</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">合数单</font></td><td>开:龙14对</td></tr><tr><td>第221期</td><td>合数单</td><td>开:虎40错</td></tr>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </tbody>
+  </table><div class="wanfatips">合单双玩法:特码数字头尾数相加能除2为双</div>
+</div>
+
+<!--广告横幅内容段代码开始-->
+<div class="box pad"> 
+<a style="display: block; margin-top: 5px;" target="_blank" href="#"><img src="../public/image/a0736487e8db2fe7.gif" width="100%">
+</a> 
+</div>
+
+<!--一尾中特--> 
+<div class="box pad">
+<div class="list-title">一尾中特</div>
+
+<table class="jztx" width="100%">
+<tbody id="yiwei">
+<tr><td>第230期</td><td>6尾.8尾.3尾.1尾.7尾.5尾</td><td>开:???准</td></tr><tr><td>第229期</td><td>2尾.3尾.8尾.7尾.1尾.9尾</td><td>开:猴10错</td></tr><tr><td>第228期</td><td>2尾.4尾.7尾.4尾.9尾.3尾</td><td>开:虎16错</td></tr><tr><td>第227期</td><td>0尾.7尾.8尾.4尾.6尾.5尾</td><td>开:牛41错</td></tr><tr><td>第226期</td><td>7尾.8尾.6尾.2尾.5尾.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">3尾</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td>3尾.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">4尾</font></span>.9尾.5尾.7尾.2尾</td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">7尾</font></span>.3尾.5尾.4尾.8尾.0尾</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>1尾.3尾.2尾.4尾.6尾.8尾</td><td>开:鸡45错</td></tr><tr><td>第222期</td><td>0尾.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">4尾</font>.9尾.6尾.2尾.8尾</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>5尾.1尾.8尾.4尾.3尾.2尾</td><td>开:虎40错</td></tr></tbody></table></div>
+
+<!--一头中特--> 
+<div class="box pad">
+<div class="list-title">一头中特</div>
+
+<table class="jztx" width="100%">
+<tbody id="yitou">
+<tr><td>第230期</td><td>1头.2头.3头</td><td>开:???准</td></tr><tr><td>第229期</td><td>2头.3头.4头</td><td>开:猴10错</td></tr><tr><td>第228期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">1头</font></span>.3头.4头</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>3头.1头.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">4头</font></span></td><td>开:牛41对</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">0头</font></span>.2头.3头</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>0头.3头.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">4头</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td>1头.2头.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">4头</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td>0头.3头.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">4头</font></span></td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>0头.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">1头</font>.2头</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>0头.2头.3头</td><td>开:虎40错</td></tr></tbody></table></div>
+
+ <!--四季肖-->   
+<div class="box pad">
+<div class="list-title">四季特肖</div>
+
+<table class="jztx" width="100%">
+<tbody id="sijixiao">
+<tr><td>第230期</td><td>春肖.秋肖.冬肖</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">秋肖</font></span>.夏肖.冬肖</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>夏肖.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">春肖</font></span>.秋肖</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>春肖.秋肖.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">冬肖</font></span></td><td>开:牛41对</td></tr><tr><td>第226期</td><td>夏肖.秋肖.冬肖</td><td>开:兔03错</td></tr><tr><td>第225期</td><td>夏肖.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">秋肖</font></span>.冬肖</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>春肖.秋肖.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">夏肖</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td>夏肖.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">秋肖</font></span>.冬肖</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>夏肖.秋肖.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">春肖</font></td><td>开:龙14对</td></tr><tr><td>第221期</td><td>夏肖.<font color="#ff0000" style="background-color: rgb(255, 255, 0);">春肖</font>.冬肖</td><td>开:虎40对</td></tr></tbody></table><div class="wanfatips">【春肖】:虎,兔,龙 【夏肖】:马,蛇,羊<br>【秋肖】:鸡,猴,狗 【冬肖】:鼠,猪,牛</div>
+</div>
+
+
+
+<!--大小中特--> 
+<div class="box pad">
+<div class="list-title">大小中特</div>
+
+<table class="jztx" width="100%">
+<tbody id="daxiao">
+<tr><td>第230期</td><td>小数</td><td>开:???准</td></tr><tr><td>第229期</td><td>大数</td><td>开:猴10错</td></tr><tr><td>第228期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">小数</font></span></td><td>开:虎16对</td></tr><tr><td>第227期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">大数</font></span></td><td>开:牛41对</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">小数</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">大数</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">大数</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">大数</font></span></td><td>开:鸡45对</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">小数</font></td><td>开:龙14对</td></tr><tr><td>第221期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">大数</font></td><td>开:虎40对</td></tr></tbody></table></div>
+
+<!--五行中特--> 
+<div class="box pad">
+<div class="list-title">五行中特</div>
+
+<table class="jztx" width="100%">
+<tbody id="wuxing">
+<tr><td>第230期</td><td>水+火+土</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">火</font></span>+水+金</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>火+水+土</td><td>开:虎16错</td></tr><tr><td>第227期</td><td>木+水+土</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>木+<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">金</font></span>+土</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>木+<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">水</font></span>+土</td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">火</font></span>+木+土</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>土+水+金</td><td>开:鸡45错</td></tr><tr><td>第222期</td><td>火+<font color="#ff0000" style="background-color: rgb(255, 255, 0);">水</font>+金</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>木+<font color="#ff0000" style="background-color: rgb(255, 255, 0);">火</font>+土</td><td>开:虎40对</td></tr></tbody></table></div>
+
+<!--马报图展-->
+<a id="amqzs"></a>
+<div class="box pad">
+<div class="list-title">澳门铁算盘</div>
+<script>
+document.write(`<img width="100%" src="${imgurl2}amtsp.jpg">`);
+</script>
+</div>
+
+<!--四肖四码--> 
+<div class="box pad">
+<div class="list-title">四肖四码</div>
+
+<table class="jztx" width="100%">
+<tbody id="xiaoma">
+<tr><td>第230期</td><td>(鼠30) (龙38) (兔15) (狗44)</td><td>开:???准</td></tr><tr><td>第229期</td><td>(鸡45) (蛇25) (龙26) (马36)</td><td>开:猴10错</td></tr><tr><td>第228期</td><td>(猪19) (鼠30) (兔03) (羊23)</td><td>开:虎16错</td></tr><tr><td>第227期</td><td>(狗32) (羊47) (猴46) (蛇25)</td><td>开:牛41错</td></tr><tr><td>第226期</td><td>(猴34) (<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">兔03</font></span>) (鸡45) (鼠42)</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>(鸡09) (牛41) (<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">狗</font></span>20) (虎04)</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>(兔03) (蛇49) (<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">羊</font></span>23) (龙02)</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>(龙38) (马36) (鼠42) (猪31)</td><td>开:鸡45错</td></tr><tr><td>第222期</td><td>(<font color="#ff0000" style="background-color: rgb(255, 255, 0);">龙</font>02) (猴22) (虎16) (兔15)&nbsp;</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>(狗08) (兔39) (牛17) (蛇01)</td><td>开:虎40错</td></tr></tbody></table></div>
+
+<!--天地特销--> 
+<div class="box pad">
+<div class="list-title">天地特肖</div>
+
+<table class="jztx" width="100%">
+<tbody id="tiandixiao">
+<tr><td>第230期</td><td>地肖</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">天肖</font></span></td><td>开:猴10对</td></tr><tr><td>第228期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">地肖</font></span></td><td>开:虎16对</td></tr><tr><td>第227期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">天肖</font></span></td><td>开:牛41对</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">天肖</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">地肖</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">地肖</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">地肖</font></span></td><td>开:鸡45对</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">天肖</font></td><td>开:龙14对</td></tr><tr><td>第221期</td><td>地肖</td><td>开:虎40错</td></tr></tbody></table><div class="wanfatips">【天肖】:兔,马,猴,猪,牛,龙<br>【地肖】:蛇,羊,鸡,狗,鼠,虎</div>
+</div>
+
+<!--尾特大小--> 
+<div class="box pad">
+<div class="list-title">特尾大小</div>
+
+<table class="jztx" width="100%">
+<tbody id="weidaxiao">
+<tr><td>第230期</td><td>尾数小</td><td>开:???准</td></tr><tr><td>第229期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">尾数小</font></span></td><td>开:猴10对</td></tr><tr><td>第228期</td><td>尾数小</td><td>开:虎16错</td></tr><tr><td>第227期</td><td>尾数大</td><td>开:牛41错</td></tr><tr><td>第226期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">尾数小</font></span></td><td>开:兔03对</td></tr><tr><td>第225期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">尾数小</font></span></td><td>开:狗44对</td></tr><tr><td>第224期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">尾数大</font></span></td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">尾数大</font></span></td><td>开:鸡45对</td></tr><tr><td>第222期</td><td><font color="#ff0000" style="background-color: rgb(255, 255, 0);">尾数小</font></td><td>开:龙14对</td></tr><tr><td>第221期</td><td>尾数大</td><td>开:虎40错</td></tr></tbody></table></div>
+
+<!--绝杀六肖--> 
+<div class="box pad">
+<div class="list-title">绝杀六肖</div>
+
+<table class="jztx" width="100%">
+<tbody id="shaliuxiao">
+<tr><td>第230期</td><td>牛龙狗虎羊兔</td><td>开:???准</td></tr><tr><td>第229期</td><td>鸡马猪蛇龙<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">猴</font></span></td><td>开:猴10错</td></tr><tr><td>第228期</td><td>兔狗蛇鼠猪马</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>兔羊鸡狗虎蛇</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>龙鼠蛇鸡羊狗</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>鼠兔龙虎羊马</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>鸡兔龙猪狗蛇</td><td>开:羊47对</td></tr><tr><td>第223期</td><td><span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">鸡</font></span>虎兔狗羊马</td><td>开:鸡45错</td></tr><tr><td>第222期</td><td>马兔猴狗牛鸡</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>猴龙蛇猪狗马</td><td>开:虎40对</td></tr></tbody></table></div>
+
+<!--封杀五行--> 
+<div class="box pad">
+<div class="list-title">封杀五行</div>
+
+<table class="jztx" width="100%">
+<tbody id="shawuxing">
+<tr><td>第230期</td><td>土</td><td>开:???准</td></tr><tr><td>第229期</td><td>金</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>火</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>土</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>火</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>金</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>木</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>水</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>金</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>木</td><td>开:虎40错</td></tr></tbody></table></div>
+
+<!--广告横幅内容段代码开始-->
+<div class="box pad"> 
+<a style="display: block; margin-top: 5px;" target="_blank" href="https://www.8818kj.com/"><img src="../public/image/lthf1.gif" width="100%"></a> 
+</div>
+
+
+<!--绝杀半波--> 
+<div class="box pad">
+<div class="list-title">绝杀半波</div>
+
+<table class="jztx" width="100%">
+    <tbody id="jueshabanbo">
+      <tr><td>第230期</td><td>绿双</td><td>开:???准</td></tr><tr><td>第229期</td><td>蓝单</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>绿单</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>红双</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>红单</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>蓝双</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>绿双</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>绿单</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>红双</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>红单</td><td>开:虎40错</td></tr>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </tbody>
+  </table></div>
+
+<!--必杀8码--> 
+<div class="box pad">
+<div class="list-title">必杀8码</div>
+
+<table class="jztx" width="100%">
+<tbody id="sha8ma">
+<tr><td>第230期</td><td>04.09.12.14.15.24.26.27</td><td>开:???准</td></tr><tr><td>第229期</td><td>36.45.46.47.48.29.30.35</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>23.44.35.28.01.17.07.15</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>48.11.23.31.43.18.30.12</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>37.25.<span style="background-color: rgb(255, 255, 0);"><font color="#ff0000">03</font></span>.39.44.32.05.17</td><td>开:兔03错</td></tr><tr><td>第225期</td><td>06.14.11.23.06.18.12.23</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>31.21.33.06.01.31.43.20</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>35.41.42.44.37.25.03.39</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>29.30.32.35.21.13.26.28</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>11.38.39.42.45.46.47.48</td><td>开:虎40对</td></tr></tbody></table></div>
+
+<!--灭绝12码--> 
+<div class="box pad">
+<div class="list-title">灭绝12码</div>
+
+<table class="jztx" width="100%">
+<tbody id="shashierma">
+<tr><td>第230期</td><td>04 06 07 24 22 31 49 42 21 32 15 30</td><td>开:???准</td></tr><tr><td>第229期</td><td>45 22 12 28 31 25 29 01 03 20 37 16</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>19 28 49 10 46 11 10 24 29 23 12 09</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>37 25 03 39.44 32 05 17 43 31 01 08</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>28 32 33 38 39 43 11 15 17 21 49 27</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>28 03 48 18 46 37 27 06 01 35 33 49</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>31 32 33 34 43 44 45 46 02 03 04 05</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>01 12 28 27 43 32 40 27 17 23 35 06</td><td>开:鸡45对</td></tr><tr><td>第222期</td><td>22 41 45 02 35 38 28 01 36 18 15 11</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>05 11 17 21 27 33 39 43 49 17 23 21</td><td>开:虎40对</td></tr></tbody></table></div>
+
+<!--特码绝杀区-->
+<div class="box pad">
+<div class="list-title">特码绝杀区</div>
+
+<table class="zonghesha" width="100%">
+  
+  <tbody id="zonghesha">
+  <tr>
+    <th>期数</th>
+    <th>杀一肖</th>
+    <th>弃一合</th>
+    <th>禁一头</th>
+    <th>去一尾</th>
+    <th>开奖结果</th>
+  </tr>
+<tr><td>第230期</td><td>虎</td><td>09合</td><td>2头</td><td>3尾</td><td>开:???准</td></tr><tr><td>第229期</td><td>蛇</td><td>10合</td><td>2头</td><td>3尾</td><td>开:猴10对</td></tr><tr><td>第228期</td><td>狗</td><td>08合</td><td>4头</td><td>4尾</td><td>开:虎16对</td></tr><tr><td>第227期</td><td>鸡</td><td>07和</td><td>0头</td><td>3尾</td><td>开:牛41对</td></tr><tr><td>第226期</td><td>龙</td><td>04合</td><td>4头</td><td>4尾</td><td>开:兔03对</td></tr><tr><td>第225期</td><td>马</td><td>03合</td><td>3头</td><td>3尾</td><td>开:狗44对</td></tr><tr><td>第224期</td><td>兔</td><td>05合</td><td>1头</td><td>3尾</td><td>开:羊47对</td></tr><tr><td>第223期</td><td>龙</td><td>10合</td><td>4头</td><td>6尾</td><td>开:鸡45错</td></tr><tr><td>第222期</td><td>狗</td><td>06合</td><td>2头</td><td>9尾</td><td>开:龙14对</td></tr><tr><td>第221期</td><td>兔</td><td>06合</td><td>0头</td><td>5尾</td><td>开:虎40对</td></tr></tbody></table></div>
+<!--澳门生肖属性-->	
+<div class="box pad">
+<div class="list-title">澳门香港通用生肖属性</div>
+<div><img width="100%" src="../public/image/2025sx.jpg"></div>
+</div>
+
+    <!--底部-->
+<div class="box pad">
+    <div class="footer">
+        <p>说明<br>本论坛所提供的内容、资料、图片和资讯，只应用在合法的⑥合彩资料探讨，暂不适用于其它，外围博彩和使用。特此声明！</p>
+        <p>论坛免责声明：以上所有广告内容均为赞助商提供，本站不对其经营行为负责。浏览或使用者须自行承担有关责任，本网站恕不负责。</p>
+        <p>【新澳彩网域名：www.6680369.COM】<br>六合在线，收集各类⑥合彩资料，免费内幕资料，走势分析，尽在新澳彩网</p>
+    </div>
+</div>
+</div>
+
+
+  <style>
+    /* 返回顶部按钮样式 */
+    #backToTop {
+      position: fixed;
+      right: 20px;
+      bottom: 60px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(to bottom, #1e90ff, #0078d7);
+      color: #fff;
+      font-size: 26px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 9999;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    #backToTop:hover {
+      background: linear-gradient(to bottom, #0078d7, #005bb5);
+      transform: scale(1.1);
+    }
+
+    /* 可选：淡入淡出动画 */
+    #backToTop.fade-in {
+      display: block;
+      opacity: 1;
+    }
+
+    #backToTop.fade-out {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  </style>
+<div id="backToTop" title="返回顶部">↑</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTop = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("fade-in");
+          backToTop.classList.remove("fade-out");
+        } else {
+          backToTop.classList.remove("fade-in");
+          backToTop.classList.add("fade-out");
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

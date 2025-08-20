@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AM开奖</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="jquery-3.6.0.min.js"></script>
+		<script src="json_am.js" type="application/javascript"></script>
+		<style>
+		body{margin:0;padding:0}
+#q,#nextQiShu{color:red}
+.kj-lotto{padding:0 5px;box-sizing:border-box;color:#000;font-size:16px;text-align:center;font-family:Arial,'微软雅黑';max-width:500px;margin:auto;
+border: 0px solid #dad7d7;
+}
+.kj-lotto a{text-decoration:none}
+.kj-lotto ul{margin:0;padding:0}
+.kj-lotto ul li{list-style:none}
+.kj-lotto .kj-lotto-tit{height:2.5em;line-height:2.5em;display:flex;justify-content:space-between}
+.kj-lotto .kj-lotto-box ul{display:flex;justify-content:space-between}
+.kj-lotto .kj-lotto-box ul li{width:13%}
+.kj-lotto .kj-lotto-box ul li span{width:2.3em;height:2.3em;line-height:2.1em;font-size:24px;display:inline-block;background-size:100% 100% !important}
+.kj-lotto .kj-sapnjia{display:inline-block;height:2.3em;line-height:1.6em;color:red;font-size:24px}
+.kj-lotto .kj-lotto-red{background:url('./img/ball-red.png') 0 0 no-repeat}
+.kj-lotto .kj-lotto-blue{background:url('./img/ball-blue.png') 0 0 no-repeat}
+.kj-lotto .kj-lotto-green{background:url('./img/ball-green.png') 0 0 no-repeat}
+.kj-lotto .kj-lotto-none{color:rgb(0,0,0);background-color:rgb(153,153,153)}
+.kj-lotto .kj-lotto-box ul li label{display:block}
+.kj-lotto .kj-lotto-foot{height:35px;display:flex;justify-content:space-between;align-items:center}
+.kj-lotto-foot2{padding:3px 8px;color:#fff;border-radius:2px;display:inline-block;background:linear-gradient(to top,#c10000,#f00);text-decoration:none}
+.kj-lotto-lishi{padding:3px 8px;color:#fff;border-radius:2px;display:inline-block;background:linear-gradient(to top,#c10000,#f00);text-decoration:none;line-height: 1.0em;}
+@media screen and (max-width:800px){.kj-lotto .kj-lotto-box ul li span{font-size:20px}
+}@media screen and (max-width:500px)
+{.kj-lotto{font-size:15px}
+.kj-lotto .kj-lotto-box ul li span{font-size:18px}
+.kj-lotto .kj-lotto-box ul label{font-size:15px}
+}@media screen and (max-width:450px){#down-txt{display:none}
+.kj-lotto{font-size:14px}
+.kj-lotto .kj-lotto-box ul li span{font-size:18px}
+.kj-lotto .kj-lotto-box ul label{font-size:14px}
+}@media screen and (max-width:350px)
+{.kj-lotto{font-size:12px}
+.kj-lotto .kj-lotto-box ul li span{font-size:14px}
+.kj-lotto .kj-lotto-box ul li span{font-size:12px}
+}
+		</style>
+	</head>
+	<body>
+	<div class="kj-lotto">
+	<div class="kj-lotto-tit">
+		<div class="kj-lotto-tit1">
+			<span class="name"></span> 第 <span class="Qi" style="color:red;font-weight: 700;"></span> 期
+		</div>
+		<div class="kj-lotto-tit2" style="display: block">
+			<span id="down-txt">倒计时：</span><span id="down-show"></span>
+		</div>
+		<div>
+			<a class="kj-lotto-lishi" href='./amkj.html' target="_blank">历史记录</a>
+		</div>
+	</div>
+	<div class="kj-lotto-box">
+		<ul>
+			<li>
+				<span id="w0">
+					<label id="m0"></label>
+				</span>
+				<label id="m0x"></label>
+			</li>
+			<li>
+				<span id="w1">
+					<label id="m1"></label>
+				</span>
+				<label id="m1x"></label>
+			</li>
+			<li>
+				<span id="w2">
+					<label id="m2"></label>
+				</span>
+				<label id="m2x"></label>
+			</li>
+			<li>
+				<span id="w3">
+					<label id="m3"></label>
+				</span>
+				<label id="m3x"></label>
+			</li>
+			<li>
+				<span id="w4">
+					<label id="m4"></label>
+				</span>
+				<label id="m4x"></label>
+			</li>
+			<li>
+				<span id="w5">
+					<label id="m5"></label>
+				</span>
+				<label id="m5x"></label>
+			</li>
+			<span class="kj-sapnjia">+</span>
+			<li>
+				<span id="w6">
+					<label id="m6"></label>
+				</span>
+				<label id="m6x"></label>
+			</li>
+		</ul>
+	</div>
+	<div class="kj-lotto-foot">
+		<div class="kj-lotto-foot1">第 <span class="Nq" style="color:red;font-weight: 700;"></span> 期
+			<span class="Moon"></span>月<span class="Day"></span>日 星期<span class="Week"></span>
+			<span class="Time"></span>
+		</div>
+		<div>
+			<a class="kj-lotto-foot2" href="#" onclick="location.reload();return false;">刷 新</a>
+		</div>
+	</div>
+</div>
+	</body>
+</html>
