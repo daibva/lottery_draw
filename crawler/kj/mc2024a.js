@@ -168,7 +168,8 @@ class SimpleTabBox {
             <div class="notice-banner">
                 <div class="notice-label">最新公告：</div>
                 <div class="notice-text">
-                    <span class="scrolling-text">易记网址6680369.com 欢迎广大彩民收藏，望相互告知！</span>
+<!--                    <span class="scrolling-text">易记网址6680369.com 欢迎广大彩民收藏，望相互告知！</span>-->
+                    <span class="scrolling-text">这是一个测试页面</span>
                 </div>
             </div>
             
